@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.env
+uploads/covers/*
+uploads/ebooks/*
+uploads/qrcodes/*
+!uploads/covers/.gitkeep
+!uploads/ebooks/.gitkeep
+!uploads/qrcodes/.gitkeep
+*.log
+.DS_Store
