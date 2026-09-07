@@ -624,9 +624,3 @@ textarea.input:focus {
 
 
 
-/* Remove white background from Browse E-Books button */
-.hero-section .btn:nth-child(2) {
-  background: transparent !important;
-  color: #FFFFFF !important;
-  border: 1.5px solid #FFFFFF !important;
-}
