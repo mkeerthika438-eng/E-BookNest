@@ -38,7 +38,7 @@ export default function DashboardLayout() {
   return (
     <>
       <Navbar />
-      <div className="container" style={{ display: 'flex', gap: 28, alignItems: 'flex-start', padding: '28px 24px 60px' }}>
+      <div className="container dashboard-shell" style={{ display: 'flex', gap: 28, alignItems: 'flex-start', padding: '28px 24px 60px' }}>
         <aside className="card dash-sidebar" style={{ width: 230, flexShrink: 0, padding: 12, position: 'sticky', top: 84 }}>
           {links.map(({ to, label, icon: Icon, end }) => (
             <NavLink
@@ -51,7 +51,7 @@ export default function DashboardLayout() {
             </NavLink>
           ))}
         </aside>
-        <div style={{ flex: 1, minWidth: 0 }}>
+        <div className="dashboard-content" style={{ flex: 1, minWidth: 0 }}>
           <Outlet />
         </div>
       </div>
@@ -65,8 +65,10 @@ export default function DashboardLayout() {
         .sidebar-link:hover { background: var(--color-blue-light); text-decoration: none; }
         .sidebar-link.active { background: var(--color-blue); color: #fff; }
         @media (max-width: 800px) {
-          .dash-sidebar { display: flex; overflow-x: auto; width: 100%; position: static; gap: 4px; }
+          .dashboard-shell { flex-direction: column !important; }
+          .dash-sidebar { display: flex; overflow-x: auto; width: 100% !important; position: static; gap: 4px; }
           .sidebar-link { white-space: nowrap; }
+          .dashboard-content { width: 100%; }
         }
       `}</style>
     </>
