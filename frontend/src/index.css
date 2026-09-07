@@ -621,3 +621,12 @@ textarea.input:focus {
   h1 { font-size: 1.35rem !important; }
   .hero-section h1 { font-size: 1.5rem !important; }
 }
+
+
+
+/* Remove white background from Browse E-Books button */
+.hero-section .btn:nth-child(2) {
+  background: transparent !important;
+  color: #FFFFFF !important;
+  border: 1.5px solid #FFFFFF !important;
+}
