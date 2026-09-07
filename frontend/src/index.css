@@ -575,191 +575,49 @@ textarea.input:focus {
    TABLET
 ========================= */
 
-@media (max-width: 900px) {
-  .navbar-search {
-    display: none;
-  }
-
-  .container {
-    padding-left: 18px;
-    padding-right: 18px;
-  }
-
-  .grid-books {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 768px) {
-  .navbar-container {
-    height: 60px;
-    padding: 0 14px;
-  }
-
-  .navbar-logo span {
-    font-size: 1.15rem;
-  }
-
-  .navbar-logo svg {
-    width: 23px;
-    height: 23px;
-  }
-
-  .navbar-desktop-nav {
-    display: none;
-  }
-
-  .navbar-mobile-btn {
-    display: inline-flex !important;
-  }
-
-  .navbar-mobile-menu {
-    display: block;
-    padding: 12px 14px 16px;
-    border-top: 1px solid var(--color-border);
-    background: var(--color-white);
-    box-shadow: var(--shadow-md);
-  }
-
-  .grid-books {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-  }
-
-  h1 {
-    font-size: 1.8rem;
-  }
-
-  h2 {
-    font-size: 1.5rem;
-  }
-
-  h3 {
-    font-size: 1.2rem;
-  }
-}
-
-/* =========================
-   SMALL PHONE
-========================= */
-
-@media (max-width: 480px) {
-  .container {
-    padding-left: 12px;
-    padding-right: 12px;
-  }
-
-  .navbar-container {
-    height: 56px;
-    padding: 0 10px;
-  }
-
-  .navbar-logo span {
-    font-size: 1.05rem;
-  }
-
-  .grid-books {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 8px;
-  }
-
-  .btn {
-    padding: 8px 12px;
-    font-size: 0.8rem;
-  }
+/* ===== Global mobile responsiveness ===== */
+@media (max-width: 640px) {
+  h1 { font-size: 1.6rem !important; line-height: 1.2 !important; }
+  h2 { font-size: 1.3rem !important; }
+  h3 { font-size: 1.05rem !important; }
 
   .card {
-    max-width: 100%;
-  }
-}
-
-/* =========================
-   VERY SMALL PHONE
-========================= */
-
-@media (max-width: 360px) {
-  .container {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 4px;
+    padding-right: 4px;
   }
 
-  .navbar-logo span {
-    font-size: 1rem;
+  /* Tables: allow horizontal scroll instead of getting cut off */
+  .card:has(table) {
+    overflow-x: auto !important;
+  }
+  table {
+    min-width: 640px;
   }
 
-  .grid-books {
-    gap: 6px;
-  }
-}
-/* ===== MOBILE PAGE FIX ===== */
-
-@media (max-width: 768px) {
-
-  html,
-  body,
-  #root {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden !important;
-  }
-
-  .container {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding-left: 14px !important;
-    padding-right: 14px !important;
-    box-sizing: border-box;
-  }
-
-  /* Dashboard layouts */
-  main,
-  section,
-  article {
-    max-width: 100% !important;
-    box-sizing: border-box;
-  }
-
-  /* Prevent fixed-width cards */
-  .card {
-    width: 100%;
-    max-width: 100% !important;
-    box-sizing: border-box;
-  }
-
-  /* Any flex row should wrap */
-  .flex {
+  /* Any flex row that doesn't wrap should stack on small screens */
+  .flex-between {
     flex-wrap: wrap;
+    gap: 10px;
   }
 
-  /* Forms */
-  input,
-  select,
-  textarea,
-  button {
-    max-width: 100%;
-    box-sizing: border-box;
+  /* Forms and cards shouldn't force a fixed width on mobile */
+  form.card, .card {
+    max-width: 100% !important;
   }
 
-  /* Books */
-  .grid-books {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    width: 100% !important;
+  /* Buttons in rows become easier to tap */
+  .btn {
+    font-size: 0.85rem;
+  }
+
+  /* Book details page: cover + info should stack cleanly */
+  .container {
+    padding-left: 14px;
+    padding-right: 14px;
   }
 }
 
-@media (max-width: 480px) {
-
-  .container {
-    padding-left: 10px !important;
-    padding-right: 10px !important;
-  }
-
-  .grid-books {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 8px !important;
-  }
+@media (max-width: 420px) {
+  h1 { font-size: 1.35rem !important; }
+  .hero-section h1 { font-size: 1.5rem !important; }
 }
