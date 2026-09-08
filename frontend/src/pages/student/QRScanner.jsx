@@ -46,14 +46,26 @@ export default function QRScanner() {
     return () => {
       cancelled = true;
       if (scannerRef.current) {
-        scannerRef.current.stop().then(() => scannerRef.current.clear()).catch(() => {});
+        try {
+          const state = scannerRef.current.getState ? scannerRef.current.getState() : null;
+          // state 2 = SCANNING (per html5-qrcode Html5QrcodeScannerState). Only stop if actually running.
+          if (state === 2) {
+            scannerRef.current.stop().then(() => scannerRef.current.clear()).catch(() => {});
+          }
+        } catch {}
       }
     };
   }, [mode]);
 
   const stopCamera = async () => {
     if (scannerRef.current) {
-      try { await scannerRef.current.stop(); scannerRef.current.clear(); } catch {}
+      try {
+        const state = scannerRef.current.getState ? scannerRef.current.getState() : null;
+        if (state === 2) {
+          await scannerRef.current.stop();
+          scannerRef.current.clear();
+        }
+      } catch {}
     }
   };
 
